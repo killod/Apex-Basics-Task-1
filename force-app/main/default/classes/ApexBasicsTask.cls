@@ -43,11 +43,11 @@ public with sharing class ApexBasicsTask {
             }
             List<Account> acoountsWithlotsOfTasks = [SELECT Id FROM Account];
             Id activeUserId = [
-            SELECT Id 
-            FROM User 
-            WHERE IsActive = TRUE 
-            AND Name LIKE '%User%' 
-            LIMIT 1
+                SELECT Id 
+                FROM User 
+                WHERE IsActive = TRUE 
+                AND Name LIKE '%User%' 
+                LIMIT 1
             ].Id;
             for(Task task:tasksToReassign){
                 task.OwnerId = activeUserId;
